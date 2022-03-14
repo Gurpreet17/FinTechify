@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">FinTechify</string>
+    <string name="log_out">Log Out</string>
+    <string name="welcome">TextView</string>
+    <string name="your_balance">Your Balance:</string>
+    <string name="balance">{Balance}</string>
+    <string name="expense_sheet">EXPENSE SHEET</string>
+    <string name="deposit">Deposit</string>
+    <string name="withdrawal">WITHDRAWAL</string>
+    <string name="interest">INTEREST</string>
+    <string name="taxes">TAXES</string>
+    <string name="salary_after_tax">SALARY AFTER TAX</string>
+    <string name="back">back</string>
+    <string name="every_month">Every Month</string>
+    <string name="every_2_weeks">Every 2 Weeks</string>
+    <string name="every_week">Every Week</string>
+    <string name="every_day">Every Day</string>
+    <string name="frequency">Frequency:</string>
+    <string name="amount">Amount ($):</string>
+    <string name="once">Once</string>
+    <string name="tax_rate">Tax Rate (%):</string>
+    <string name="calculate">Calculate</string>
+    <string name="balance_after_taxes">Balance After Taxes:</string>
+    <string name="balancetaxnumber">{BalanceTaxNumber}</string>
+    <string name="interest_rate">Interest Rate (%):</string>
+    <string name="interest_time_years">Interest Time (Years):</string>
+
+    <string-array name="items">
+        <item>Once</item>
+        <item>Every day</item>
+        <item>Once a week</item>
+        <item>Twice a week</item>
+        <item>Every 2 weeks</item>
+    </string-array>
 </resources>
