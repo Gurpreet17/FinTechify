@@ -10,6 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinTechify">
         <activity
+            android:name=".Withdrawal"
+            android:exported="false" />
+        <activity
+            android:name=".Taxes"
+            android:exported="false" />
+        <activity
+            android:name=".simpleInterest"
+            android:exported="false" />
+        <activity
+            android:name=".compoundInterest"
+            android:exported="false" />
+        <activity
+            android:name=".Interest"
+            android:exported="false" />
+        <activity
+            android:name=".Deposit"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
