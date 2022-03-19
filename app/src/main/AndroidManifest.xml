@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinTechify">
         <activity
+            android:name=".Expenses"
+            android:exported="false" />
+        <activity
+            android:name=".salaryAfterTax"
+            android:exported="false" />
+        <activity
             android:name=".Withdrawal"
             android:exported="false" />
         <activity

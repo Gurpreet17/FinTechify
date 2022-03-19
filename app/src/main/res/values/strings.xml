@@ -24,6 +24,8 @@
     <string name="balancetaxnumber">{BalanceTaxNumber}</string>
     <string name="interest_rate">Interest Rate (%):</string>
     <string name="interest_time_years">Interest Time (Years):</string>
+    <string name="expenses">Expenses</string>
+    <string name="sat">Salary After Tax</string>
 
     <string-array name="items">
         <item>Once</item>
