@@ -3,31 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <EditText
-        android:id="@+id/editTextNumberDecimal4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:height="48px"
-        android:ems="10"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal3"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal3"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="# of Times Compounded:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
+    android:layout_height="match_parent"
+    tools:context=".simpleInterest">
 
     <TextView
         android:id="@+id/textView9"
@@ -53,14 +30,13 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal3"
-        android:layout_width="0dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:height="48px"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal2"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -87,14 +63,13 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal2"
-        android:layout_width="0dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:height="48px"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/logIn3"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -106,7 +81,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#2B7B98"
+        android:backgroundTint="#3B9CBF"
         android:text="Compound"
         android:textColor="#FFFFFF"
         android:textSize="23dp"
@@ -123,7 +98,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#3B9CBF"
+        android:backgroundTint="#2B7B98"
         android:text="Simple"
         android:textColor="#FFFFFF"
         android:textSize="23dp"
@@ -134,7 +109,7 @@
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/expense_page"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -168,10 +143,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/expense_page" />
 
     <Button
-        android:id="@+id/logOut2"
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
