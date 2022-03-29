@@ -7,7 +7,7 @@
     tools:context=".Interest">
 
     <Button
-        android:id="@+id/logIn3"
+        android:id="@+id/compound"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
@@ -20,11 +20,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/results"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
-        android:id="@+id/logIn4"
+        android:id="@+id/calculate"
         android:layout_width="184dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -37,11 +37,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/results"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
-        android:id="@+id/expense_page"
+        android:id="@+id/activity_title"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -56,7 +56,7 @@
         tools:text="Interest" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/balance"
@@ -75,7 +75,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expense_page" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_title" />
 
     <Button
         android:id="@+id/back"

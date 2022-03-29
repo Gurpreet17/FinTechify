@@ -23,7 +23,7 @@ public class compoundInterest extends AppCompatActivity {
     }
 
     public void goBack(){
-        Intent intent = new Intent(this, HomePage.class);
+        Intent intent = new Intent(this, Interest.class);
         startActivity(intent);
     }
 }

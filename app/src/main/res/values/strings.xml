@@ -26,6 +26,11 @@
     <string name="interest_time_years">Interest Time (Years):</string>
     <string name="expenses">Expenses</string>
     <string name="sat">Salary After Tax</string>
+    <string name="transfer">Transfer</string>
+    <string name="receive">Transfer To:</string>
+    <string name="username">Username</string>
+    <string name="convert">Convert Currency</string>
+    <string name="conversion_country">Currency Type:</string>
 
     <string-array name="items">
         <item>Once</item>
@@ -33,5 +38,12 @@
         <item>Once a week</item>
         <item>Twice a week</item>
         <item>Every 2 weeks</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>CAD</item>
+        <item>USD</item>
+        <item>AUD</item>
+        <item>BZD</item>
     </string-array>
 </resources>
