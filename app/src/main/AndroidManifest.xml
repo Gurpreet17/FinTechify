@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fintechify">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinTechify">
         <activity
-            android:name=".Expenses"
+            android:name=".Transfer"
             android:exported="false" />
         <activity
-            android:name=".salaryAfterTax"
+            android:name=".Convert"
             android:exported="false" />
         <activity
             android:name=".Withdrawal"
