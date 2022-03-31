@@ -20,10 +20,23 @@ public class compoundInterest extends AppCompatActivity {
                 goBack();
             }
         });
+
+        Button simple = (Button) findViewById(R.id.calculate);
+        simple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goSimple();
+            }
+        });
     }
 
     public void goBack(){
         Intent intent = new Intent(this, Interest.class);
+        startActivity(intent);
+    }
+
+    public void goSimple(){
+        Intent intent = new Intent(this, simpleInterest.class);
         startActivity(intent);
     }
 }

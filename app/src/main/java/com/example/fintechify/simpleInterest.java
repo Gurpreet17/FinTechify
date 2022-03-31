@@ -20,10 +20,23 @@ public class simpleInterest extends AppCompatActivity {
                 goBack();
             }
         });
+        Button compound = (Button) findViewById(R.id.compound);
+        compound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goCompound();
+            }
+        });
     }
 
     public void goBack(){
         Intent intent = new Intent(this, Interest.class);
         startActivity(intent);
     }
+    public void goCompound(){
+        Intent intent = new Intent(this, compoundInterest.class);
+        startActivity(intent);
+    }
+    
+    
 }
