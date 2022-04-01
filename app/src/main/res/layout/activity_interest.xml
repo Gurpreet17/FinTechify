@@ -8,6 +8,7 @@
 
     <Button
         android:id="@+id/compound"
+        style="@style/Widget.Button.CustomStyle"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
@@ -16,15 +17,17 @@
         android:backgroundTint="#3B9CBF"
         android:text="Compound"
         android:textColor="#FFFFFF"
-        android:textSize="23dp"
+        android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/results"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/calculate"
+        style="@style/Widget.Button.CustomStyle"
         android:layout_width="184dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -33,7 +36,7 @@
         android:backgroundTint="#3B9CBF"
         android:text="Simple"
         android:textColor="#FFFFFF"
-        android:textSize="23dp"
+        android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"

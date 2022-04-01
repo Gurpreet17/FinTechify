@@ -31,6 +31,8 @@
     <string name="username">Username</string>
     <string name="convert">Convert Currency</string>
     <string name="conversion_country">Currency Type:</string>
+    <string name="welcome_name">Welcome, {name}</string>
+    <string name="finance_news">Finance News</string>
 
     <string-array name="items">
         <item>Once</item>

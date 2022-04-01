@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:addStatesFromChildren="false"
     tools:context=".HomePage">
 
     <Button
@@ -29,11 +30,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="409dp"
+        android:id="@+id/welcome"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/welcome"
+        android:layout_marginEnd="16dp"
+        android:text="@string/welcome_name"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="48sp"
@@ -52,7 +55,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <TextView
         android:id="@+id/textView3"
@@ -66,9 +69,12 @@
 
     <Button
         android:id="@+id/deposit"
-        android:layout_width="409dp"
-        android:layout_height="0dp"
+        style="@style/Widget.Button.CustomStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/deposit"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +83,12 @@
 
     <Button
         android:id="@+id/withdrawal"
-        android:layout_width="409dp"
-        android:layout_height="0dp"
+        style="@style/Widget.Button.CustomStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/withdrawal"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,8 +97,12 @@
 
     <Button
         android:id="@+id/transfer"
-        android:layout_width="409dp"
-        android:layout_height="0dp"
+        style="@style/Widget.Button.CustomStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/transfer"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,9 +111,12 @@
 
     <Button
         android:id="@+id/taxes"
-        android:layout_width="409dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
+        style="@style/Widget.Button.CustomStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/taxes"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,9 +125,12 @@
 
     <Button
         android:id="@+id/interest"
-        android:layout_width="409dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
+        style="@style/Widget.Button.CustomStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/interest"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,9 +139,12 @@
 
     <Button
         android:id="@+id/conversion"
-        android:layout_width="409dp"
-        android:layout_height="0dp"
+        style="@style/Widget.Button.CustomStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/convert"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,10 +153,13 @@
 
     <Button
         android:id="@+id/news"
-        android:layout_width="409dp"
-        android:layout_height="0dp"
+        style="@style/Widget.Button.CustomStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Finance News"
+        android:layout_marginEnd="16dp"
+        android:text="@string/finance_news"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
