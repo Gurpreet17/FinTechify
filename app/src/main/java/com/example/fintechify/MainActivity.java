@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button logIn, register;
     private TextView txtEmail;
     private TextView txtPassword;
+    public static String[] vertified;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +30,20 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
 
+        //sp.edit().clear().commit();
+
         logIn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 String inputEmail = txtEmail.getText().toString();
                 String inputPassword = txtPassword.getText().toString();
-                System.out.println("Input Email - " + inputEmail);
-                System.out.println("Password -" + inputPassword);
-                System.out.println(sp.getString(inputEmail,""));
 
                 if (sp.contains(inputEmail))
                 {
                     String [] information = sp.getString(inputEmail,"").split("\\.");
                     if (information.length > 0 && information[0].equals(inputPassword)){
-                        openHome();
-                    }
+                        vertified = sp.getString(inputEmail,"").split("\\.");
+                        openHome(); }
                     else
                         Toast.makeText(MainActivity.this,"Invalid Password !",Toast.LENGTH_LONG).show();
                 }

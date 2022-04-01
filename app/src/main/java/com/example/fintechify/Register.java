@@ -32,17 +32,16 @@ public class Register extends AppCompatActivity {
         txtPassword = findViewById(R.id.password);
 
         btnRegister.setOnClickListener(new View.OnClickListener(){
-
-
             @Override
             public void onClick(View v){
                 strEmail = txtEmail.getText().toString();
                 strPassword = txtPassword.getText().toString();
                 strAge = txtAge.getText().toString();
                 strName = txtName.getText().toString();
+                String balance = "69";
                 sp = getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
-                String information = strPassword + "." + strName + "." + strAge;
+                String information = strPassword + "." + strEmail + "." + strName + "." + balance;
                 editor.putString(strEmail,information);
                 editor.commit();
                 System.out.println(sp.getAll());
