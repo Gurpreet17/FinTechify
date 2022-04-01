@@ -3,6 +3,7 @@ package com.example.fintechify;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -15,18 +16,10 @@ import java.util.*;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
-
 public class Register extends AppCompatActivity {
-    private Button btnRegister;
-    private TextView txtEmail;
-    private TextView txtPassword;
-    private TextView txtName;
-    private TextView txtAge;
-    private String strName;
-    private String strAge;
-    private String strEmail;
-    private String strPassword;
+    private Button btnRegister, logIn;
+    private TextView txtEmail, txtPassword, txtName, txtAge;
+    private String strName, strAge, strEmail, strPassword;
     private SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,5 +49,22 @@ public class Register extends AppCompatActivity {
                 Toast.makeText(Register.this,"Successfully Registered",Toast.LENGTH_LONG).show();
             }
         });
+
+        logIn = findViewById(R.id.logIn);
+        logIn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openLogin();
+            }
+        });
+
+    }
+    public void openLogin(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public SharedPreferences getSp(){
+        return this.sp;
     }
 }

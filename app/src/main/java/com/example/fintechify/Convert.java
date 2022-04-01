@@ -29,7 +29,7 @@ import okhttp3.Response;
 public class Convert extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Button back, calculate;
     private TextView results;
-    private Spinner droplist;
+    private Spinner droplist, droplist2;
     private EditText inputAmount;
     private double api;
 
@@ -45,8 +45,12 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
         droplist.setAdapter(adapter);
         droplist.setOnItemSelectedListener(this);
 
+        droplist2 = findViewById(R.id.droplist2);
+        droplist2.setAdapter(adapter);
+        droplist2.setOnItemSelectedListener(this);
+
         inputAmount = (EditText) findViewById(R.id.inputAmount);
-        calculate = (Button) findViewById(R.id.calculate);
+        calculate = findViewById(R.id.calculate);
         calculate.setOnClickListener(new View.OnClickListener(){
            public void onClick(View view){
                try {
@@ -54,7 +58,7 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
                } catch (Exception e){
                    api = 1.00;
                }
-               fetchData(droplist.getSelectedItem().toString(), api);
+               fetchData(droplist.getSelectedItem().toString(), droplist2.getSelectedItem().toString(), api);
            }
         });
 
@@ -81,7 +85,7 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
     public void onNothingSelected(AdapterView<?> adapterView) {
         // Empty
     }
-    public void fetchData(String type1, double amount){
+    public void fetchData(String type1, String type2, double amount){
         results = findViewById(R.id.results);
 
         OkHttpClient client = new OkHttpClient();
@@ -106,9 +110,11 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
                             try {
                                 JSONObject jsonObject = new JSONObject(myResponse);
                                 JSONObject data = jsonObject.getJSONObject("data");
-                                JSONObject currency = data.getJSONObject(type1);
-                                double api = Double.parseDouble(currency.getString("value"));
-                                results.setText(String.format("%.2f", amount * api));
+                                JSONObject first = data.getJSONObject(type1);
+                                double from = Double.parseDouble(first.getString("value"));
+                                JSONObject second = data.getJSONObject(type2);
+                                double to = Double.parseDouble(second.getString("value"));
+                                results.setText(String.format("%.2f", amount * (to/from)));
 
                             } catch (JSONException e){
                                 e.printStackTrace();
