@@ -14,23 +14,19 @@ import android.util.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button logIn;
-    private String usersFile;
-    private String usersFilePath;
-    private TextView txtRegister;
+    private Button logIn, register;
     private TextView txtEmail;
     private TextView txtPassword;
-    private TextView random;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        logIn = (Button) findViewById(R.id.logIn);
-        txtRegister = findViewById(R.id.register);
+        logIn = findViewById(R.id.logIn);
+        register = findViewById(R.id.register);
         txtEmail = findViewById(R.id.email);
         txtPassword = findViewById(R.id.password);
+
         SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
 
         logIn.setOnClickListener(new View.OnClickListener(){
@@ -56,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        txtRegister.setOnClickListener(new View.OnClickListener(){
+        register.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 openRegister();
