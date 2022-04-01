@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 
 import okhttp3.Call;
@@ -31,38 +36,39 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
     private TextView results;
     private Spinner droplist, droplist2;
     private EditText inputAmount;
+    private ArrayAdapter<String> adapter;
     private double api;
+    List<String> array = new ArrayList<>();
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convert);
 
         droplist = findViewById(R.id.droplist);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.countries, android.R.layout.simple_spinner_item);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, array);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        droplist.setAdapter(adapter);
         droplist.setOnItemSelectedListener(this);
 
         droplist2 = findViewById(R.id.droplist2);
-        droplist2.setAdapter(adapter);
         droplist2.setOnItemSelectedListener(this);
 
-        inputAmount = (EditText) findViewById(R.id.inputAmount);
+        inputAmount = findViewById(R.id.inputAmount);
         calculate = findViewById(R.id.calculate);
+        fetchData("CAD", "CAD", 1);
         calculate.setOnClickListener(new View.OnClickListener(){
            public void onClick(View view){
                try {
                    api = Double.parseDouble(inputAmount.getText().toString());
                } catch (Exception e){
                    api = 1.00;
+               } finally {
+                   fetchData(droplist.getSelectedItem().toString(), droplist2.getSelectedItem().toString(), api);
                }
-               fetchData(droplist.getSelectedItem().toString(), droplist2.getSelectedItem().toString(), api);
            }
         });
 
-        back = (Button) findViewById(R.id.back);
+        back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,6 +116,15 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
                             try {
                                 JSONObject jsonObject = new JSONObject(myResponse);
                                 JSONObject data = jsonObject.getJSONObject("data");
+
+                                if(array.size() <= 0){
+                                    for(int i = 0; i < data.length(); i++){
+                                        adapter.add(data.names().getString(i));
+                                    }
+                                    droplist.setAdapter(adapter);
+                                    droplist2.setAdapter(adapter);
+                                }
+
                                 JSONObject first = data.getJSONObject(type1);
                                 double from = Double.parseDouble(first.getString("value"));
                                 JSONObject second = data.getJSONObject(type2);

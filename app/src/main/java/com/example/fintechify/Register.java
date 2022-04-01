@@ -64,7 +64,8 @@ public class Register extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public SharedPreferences getSp(){
-        return this.sp;
+    @Override
+    public SharedPreferences getSharedPreferences(String name, int mode) {
+        return super.getSharedPreferences(name, mode);
     }
 }
