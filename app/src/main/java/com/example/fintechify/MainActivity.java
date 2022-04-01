@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 if (sp.contains(inputEmail))
                 {
                     String [] information = sp.getString(inputEmail,"").split("\\.");
-                    if (information[0].equals(inputPassword)){
+                    if (information.length > 0 && information[0].equals(inputPassword)){
                         openHome();
                     }
                     else

@@ -15,9 +15,6 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".News"
-            android:exported="false" />
-        <activity
             android:name=".Transfer"
             android:exported="false" />
         <activity
