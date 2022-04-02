@@ -32,7 +32,7 @@ public class Interest extends AppCompatActivity {
             }
         });
 
-        simple = (Button) findViewById(R.id.calculate);
+        simple = (Button) findViewById(R.id.simple);
         simple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -7,7 +7,7 @@
     tools:context=".Withdrawal">
 
     <Button
-        android:id="@+id/deposit"
+        android:id="@+id/withdrawal"
         style="@style/Widget.Button.CustomStyle"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -82,11 +82,11 @@
         app:layout_constraintTop_toBottomOf="@+id/depositAmount" />
 
     <TextView
-        android:id="@+id/activity_title"
+        android:id="@+id/txtWithdrawal"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/welcome"
+        android:text="Withdrawal"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="48sp"
@@ -116,7 +116,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_title" />
+        app:layout_constraintTop_toBottomOf="@+id/txtWithdrawal" />
 
     <Button
         android:id="@+id/back"

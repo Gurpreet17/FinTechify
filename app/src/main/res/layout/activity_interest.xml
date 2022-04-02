@@ -26,7 +26,7 @@
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
-        android:id="@+id/calculate"
+        android:id="@+id/simple"
         style="@style/Widget.Button.CustomStyle"
         android:layout_width="184dp"
         android:layout_height="70dp"
@@ -48,7 +48,7 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/interest"
+        android:text="Interest"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="48sp"
