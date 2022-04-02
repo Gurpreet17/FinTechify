@@ -2,7 +2,9 @@ package com.example.fintechify;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +15,10 @@ import java.text.NumberFormat;
 public class HomePage extends AppCompatActivity {
     private Button logOut, deposit, withdrawal, interest, taxes, sat, transfer;
     private TextView txtWelcome, txtBalance;
+    private String email;
     private String [] verified;
     private String balance;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,9 @@ public class HomePage extends AppCompatActivity {
         deposit = (Button) findViewById(R.id.deposit);
         txtWelcome = findViewById(R.id.welcome);
         txtBalance = findViewById(R.id.balance);
-        verified = getIntent().getExtras().getStringArray("userInformation");
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
+        email = getIntent().getExtras().getString("userInformation");
+        verified = sp.getString(email,"").split("\\;");
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
         balance = defaultFormat.format(Double.parseDouble(verified[3]));
         txtWelcome.setText("Welcome " + verified[2]);
@@ -98,7 +104,7 @@ public class HomePage extends AppCompatActivity {
     }
     public void openDeposit() {
         Intent intent = new Intent(this, Deposit.class);
-        intent.putExtra("userInformation",verified);
+        intent.putExtra("userInformation",email);
         startActivity(intent);
     }
     public void openWithdrawal() {

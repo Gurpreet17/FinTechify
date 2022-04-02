@@ -41,10 +41,10 @@ public class Register extends AppCompatActivity {
                 String balance = "0.00";
                 sp = getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
-                String information = strPassword + "." + strEmail + "." + strName + "." + balance;
+                String information = strPassword + ";" + strEmail + ";" + strName + ";" + balance;
                 editor.putString(strEmail,information);
                 editor.commit();
-                System.out.println(sp.getAll());
+                System.out.println("sp - " + sp.getAll());
                 Toast.makeText(Register.this,"Successfully Registered",Toast.LENGTH_LONG).show();
             }
         });

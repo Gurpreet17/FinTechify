@@ -40,9 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (sp.contains(inputEmail))
                 {
-                    String [] information = sp.getString(inputEmail,"").split("\\.");
+                    String [] information = sp.getString(inputEmail,"").split("\\;");
                     if (information.length > 0 && information[0].equals(inputPassword)){
-                        vertified = sp.getString(inputEmail,"").split("\\.");
+                        vertified = sp.getString(inputEmail,"").split("\\;");
+                        System.out.println(vertified[0] + " " + vertified[1] + " " + vertified[2] + " " + vertified[3]);
                         openHome(); }
                     else
                         Toast.makeText(MainActivity.this,"Invalid Password !",Toast.LENGTH_LONG).show();
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openHome(){
         Intent intent = new Intent(this, HomePage.class);
-        intent.putExtra("userInformation",vertified);
+        intent.putExtra("userInformation",txtEmail.getText().toString());
         startActivity(intent);
     }
 
