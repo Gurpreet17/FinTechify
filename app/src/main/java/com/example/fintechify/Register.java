@@ -42,9 +42,8 @@ public class Register extends AppCompatActivity {
                 sp = getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 String information = strPassword + ";" + strEmail + ";" + strName + ";" + balance;
-                editor.putString(strEmail,information);
-                editor.commit();
-                System.out.println("sp - " + sp.getAll());
+                editor.putString(strEmail,information).commit();
+                // System.out.println("sp - " + sp.getAll());
                 Toast.makeText(Register.this,"Successfully Registered",Toast.LENGTH_LONG).show();
             }
         });

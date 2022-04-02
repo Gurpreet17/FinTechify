@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     String [] information = sp.getString(inputEmail,"").split("\\;");
                     if (information.length > 0 && information[0].equals(inputPassword)){
-                        vertified = sp.getString(inputEmail,"").split("\\;");
+                        vertified = information;
                         System.out.println(vertified[0] + " " + vertified[1] + " " + vertified[2] + " " + vertified[3]);
                         openHome(); }
                     else
@@ -71,5 +71,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Register.class);
         startActivity(intent);
     }
-
 }
