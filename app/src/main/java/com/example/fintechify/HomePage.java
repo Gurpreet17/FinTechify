@@ -10,13 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.text.NumberFormat;
-
+import com.example.fintechify.MainActivity.*;
 
 public class HomePage extends AppCompatActivity {
     private Button logOut, deposit, withdrawal, interest, taxes, sat, transfer;
     private TextView txtWelcome, txtBalance;
     private String email;
-    private String [] verified;
+    private String [] verified = MainActivity.vertified;
     private String balance;
 
 
@@ -24,16 +24,18 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
         logOut = (Button) findViewById(R.id.logOut);
         deposit = (Button) findViewById(R.id.deposit);
         txtWelcome = findViewById(R.id.welcome);
         txtBalance = findViewById(R.id.balance);
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
-        email = getIntent().getExtras().getString("userInformation");
-        verified = sp.getString(email,"").split("\\;");
+
+//        SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
+//        email = getIntent().getExtras().getString("userInformation");
+//        verified = sp.getString(email,"").split("\\;");
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
         balance = defaultFormat.format(Double.parseDouble(verified[3]));
-        txtWelcome.setText("Welcome " + verified[2]);
+        txtWelcome.setText(String.format("Welcome %s", verified[2]));
         txtBalance.setText(balance);
         deposit.setOnClickListener(new View.OnClickListener() {
             @Override
