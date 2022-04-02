@@ -7,7 +7,7 @@
     tools:context=".Deposit">
 
     <Button
-        android:id="@+id/logIn2"
+        android:id="@+id/deposit"
         style="@style/Widget.Button.CustomStyle"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -31,7 +31,7 @@
         android:minHeight="48dp"
         android:text="@string/every_month"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/depositAmount"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/switch4" />
@@ -43,7 +43,7 @@
         android:minHeight="48dp"
         android:text="@string/every_2_weeks"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/depositAmount"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/switch3" />
@@ -55,7 +55,7 @@
         android:minHeight="48dp"
         android:text="@string/every_week"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/depositAmount"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/switch2" />
@@ -67,7 +67,7 @@
         android:minHeight="48dp"
         android:text="@string/every_day"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/depositAmount"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/switch1" />
@@ -79,8 +79,8 @@
         android:layout_marginTop="16dp"
         android:text="@string/frequency"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+        app:layout_constraintStart_toStartOf="@+id/depositAmount"
+        app:layout_constraintTop_toBottomOf="@+id/depositAmount" />
 
     <TextView
         android:id="@+id/activity_title"
@@ -98,7 +98,7 @@
         tools:text="Deposit" />
 
     <TextView
-        android:id="@+id/results"
+        android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/balance"
@@ -141,7 +141,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/depositAmount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -162,8 +162,8 @@
         android:layout_marginTop="16dp"
         android:text="Amount (CAD$)"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/results" />
+        app:layout_constraintStart_toStartOf="@+id/depositAmount"
+        app:layout_constraintTop_toBottomOf="@+id/balance" />
 
     <Switch
         android:id="@+id/switch1"
@@ -172,7 +172,7 @@
         android:minHeight="48dp"
         android:text="@string/once"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/depositAmount"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 

@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/results"
+        app:layout_constraintTop_toBottomOf="@+id/balance"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
@@ -40,7 +40,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/results"
+        app:layout_constraintTop_toBottomOf="@+id/balance"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
@@ -59,7 +59,7 @@
         tools:text="Interest" />
 
     <TextView
-        android:id="@+id/results"
+        android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/balance"

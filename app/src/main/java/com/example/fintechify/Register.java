@@ -38,7 +38,7 @@ public class Register extends AppCompatActivity {
                 strPassword = txtPassword.getText().toString();
                 strAge = txtAge.getText().toString();
                 strName = txtName.getText().toString();
-                String balance = "69";
+                String balance = "0.00";
                 sp = getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 String information = strPassword + "." + strEmail + "." + strName + "." + balance;

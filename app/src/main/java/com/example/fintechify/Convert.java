@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,17 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -92,7 +87,7 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
         // Empty
     }
     public void fetchData(String type1, String type2, double amount){
-        results = findViewById(R.id.results);
+        results = findViewById(R.id.balance);
 
         OkHttpClient client = new OkHttpClient();
         String url = "https://api.currencyapi.com/v3/latest?apikey=xkIKiIuYuYFf82N95BoYnZgEUKwxE0ONPebZnsUD";

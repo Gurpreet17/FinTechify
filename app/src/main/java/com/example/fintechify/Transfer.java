@@ -8,16 +8,22 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.fintechify.MainActivity.*;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.NumberFormat;
+
 public class Transfer extends AppCompatActivity {
     private Button back, calculate;
+    private TextView txtBalance;
     private SharedPreferences sp;
     private TextInputEditText tt, amt;
     private String[] currentUser = MainActivity.vertified;
+    private String [] verified;
+    private String balance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,11 @@ public class Transfer extends AppCompatActivity {
         tt = findViewById(R.id.transfer_to);
         amt = findViewById(R.id.transfer_amount);
         calculate = findViewById(R.id.calculate);
+        txtBalance = findViewById(R.id.balance);
+        verified = getIntent().getExtras().getStringArray("userInformation");
+        NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+        balance = defaultFormat.format(Double.parseDouble(verified[3]));
+        txtBalance.setText(balance);
 
         calculate.setOnClickListener(new View.OnClickListener(){
             @Override

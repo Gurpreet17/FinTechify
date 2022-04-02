@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.util.*;
+
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openHome(){
         Intent intent = new Intent(this, HomePage.class);
+        intent.putExtra("userInformation",vertified);
         startActivity(intent);
     }
 

@@ -6,16 +6,36 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import java.text.NumberFormat;
+
 
 public class HomePage extends AppCompatActivity {
     private Button logOut, deposit, withdrawal, interest, taxes, sat, transfer;
+    private TextView txtWelcome, txtBalance;
+    private String [] verified;
+    private String balance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
         logOut = (Button) findViewById(R.id.logOut);
+        deposit = (Button) findViewById(R.id.deposit);
+        txtWelcome = findViewById(R.id.welcome);
+        txtBalance = findViewById(R.id.balance);
+        verified = getIntent().getExtras().getStringArray("userInformation");
+        NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+        balance = defaultFormat.format(Double.parseDouble(verified[3]));
+        txtWelcome.setText("Welcome " + verified[2]);
+        txtBalance.setText(balance);
+        deposit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDeposit();
+            }
+        });
+
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +87,7 @@ public class HomePage extends AppCompatActivity {
         transfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openExpenses();
+                openTransfer();
             }
         });
     }
@@ -78,26 +98,31 @@ public class HomePage extends AppCompatActivity {
     }
     public void openDeposit() {
         Intent intent = new Intent(this, Deposit.class);
+        intent.putExtra("userInformation",verified);
         startActivity(intent);
     }
     public void openWithdrawal() {
         Intent intent = new Intent(this, Withdrawal.class);
+        intent.putExtra("userInformation",verified);
         startActivity(intent);
     }
     public void openInterest() {
         Intent intent = new Intent(this, Interest.class);
+        intent.putExtra("userInformation",verified);
         startActivity(intent);
     }
     public void openTaxes() {
         Intent intent = new Intent(this, Taxes.class);
+        intent.putExtra("userInformation",verified);
         startActivity(intent);
     }
     public void openSAT() {
         Intent intent = new Intent(this, Convert.class);
         startActivity(intent);
     }
-    public void openExpenses() {
+    public void openTransfer() {
         Intent intent = new Intent(this, Transfer.class);
+        intent.putExtra("userInformation",verified);
         startActivity(intent);
     }
 }

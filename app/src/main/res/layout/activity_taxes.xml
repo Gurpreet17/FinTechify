@@ -26,10 +26,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logIn2" />
+        app:layout_constraintTop_toBottomOf="@+id/deposit" />
 
     <Button
-        android:id="@+id/logIn2"
+        android:id="@+id/deposit"
         style="@style/Widget.Button.CustomStyle"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -39,9 +39,9 @@
         android:textColor="#FFFFFF"
         android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/depositAmount"
+        app:layout_constraintStart_toStartOf="@+id/depositAmount"
+        app:layout_constraintTop_toBottomOf="@+id/depositAmount"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
@@ -60,7 +60,7 @@
         tools:text="Taxes" />
 
     <TextView
-        android:id="@+id/results"
+        android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/balance"
@@ -103,7 +103,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/depositAmount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -125,7 +125,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/tax_rate"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/results" />
+        app:layout_constraintStart_toStartOf="@+id/depositAmount"
+        app:layout_constraintTop_toBottomOf="@+id/balance" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
