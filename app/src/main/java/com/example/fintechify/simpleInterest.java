@@ -33,7 +33,6 @@ public class simpleInterest extends AppCompatActivity {
         balance = defaultFormat.format(Double.parseDouble(verified[3]));
         txtbalance.setText(balance);
 
-
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.fintechify.MainActivity.*;
@@ -20,7 +21,7 @@ public class Transfer extends AppCompatActivity {
     private Button back, calculate;
     private TextView txtBalance;
     private SharedPreferences sp;
-    private TextInputEditText tt, amt;
+    private EditText amt, tt;
     private String [] verified;
     private String balance, email;
 
@@ -46,11 +47,11 @@ public class Transfer extends AppCompatActivity {
         calculate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String email = tt.getText().toString();
+                String temail = tt.getText().toString();
                 String amount = amt.getText().toString();
 
-                if (sp.contains(email)) {
-                    String[] information = sp.getString(email, "").split("\\.");
+                if (sp.contains(temail) && !temail.equals(email)) {
+                    String[] information = sp.getString(temail, "").split("\\;");
                     if(Double.parseDouble(verified[3]) >= Double.parseDouble(amount)){ ;
                         information[3] =  Double.parseDouble(information[3]) + Double.parseDouble(amount) + "";
                         verified[3] = Double.parseDouble(verified[3]) - Double.parseDouble(amount) + "";
@@ -60,11 +61,18 @@ public class Transfer extends AppCompatActivity {
                             update+=information[i]+";";
                             update2+=verified[i]+";";
                         }
+                        update+=information[3];
+                        update2+=verified[3];
 
                         SharedPreferences.Editor editor = sp.edit();
-                        editor.putString(email, update);
+                        editor.putString(temail, update);
                         editor.putString(verified[1], update2);
                         editor.commit();
+
+                        balance = defaultFormat.format(Double.parseDouble(verified[3]));
+                        txtBalance.setText(balance);
+                    } else {
+                        Toast.makeText(Transfer.this,"That amount exceeds your balance!",Toast.LENGTH_LONG).show();
                     }
                 }
                 else { Toast.makeText(Transfer.this,"User does not exist !",Toast.LENGTH_LONG).show(); }
