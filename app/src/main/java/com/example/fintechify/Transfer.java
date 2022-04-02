@@ -21,21 +21,24 @@ public class Transfer extends AppCompatActivity {
     private TextView txtBalance;
     private SharedPreferences sp;
     private TextInputEditText tt, amt;
-    private String[] currentUser = MainActivity.vertified;
     private String [] verified;
-    private String balance;
+    private String balance, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer);
 
-        sp = getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
+        sp = getApplicationContext().getSharedPreferences("myUserPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        email = getIntent().getExtras().getString("userInformation");
+        verified = sp.getString(email,"").split("\\;");
+
         tt = findViewById(R.id.transfer_to);
         amt = findViewById(R.id.transfer_amount);
         calculate = findViewById(R.id.calculate);
         txtBalance = findViewById(R.id.balance);
-        verified = getIntent().getExtras().getStringArray("userInformation");
+
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
         balance = defaultFormat.format(Double.parseDouble(verified[3]));
         txtBalance.setText(balance);
@@ -48,19 +51,19 @@ public class Transfer extends AppCompatActivity {
 
                 if (sp.contains(email)) {
                     String[] information = sp.getString(email, "").split("\\.");
-                    if(Double.parseDouble(currentUser[3]) >= Double.parseDouble(amount)){ ;
+                    if(Double.parseDouble(verified[3]) >= Double.parseDouble(amount)){ ;
                         information[3] =  Double.parseDouble(information[3]) + Double.parseDouble(amount) + "";
-                        currentUser[3] = Double.parseDouble(currentUser[3]) - Double.parseDouble(amount) + "";
+                        verified[3] = Double.parseDouble(verified[3]) - Double.parseDouble(amount) + "";
 
                         String update = "", update2 = "";
                         for(int i = 0; i < information.length-1; i++){
-                            update+=information[i]+".";
-                            update2+=currentUser[i]+".";
+                            update+=information[i]+";";
+                            update2+=verified[i]+";";
                         }
 
                         SharedPreferences.Editor editor = sp.edit();
                         editor.putString(email, update);
-                        editor.putString(currentUser[1], update2);
+                        editor.putString(verified[1], update2);
                         editor.commit();
                     }
                 }
@@ -79,6 +82,7 @@ public class Transfer extends AppCompatActivity {
 
     public void goBack(){
         Intent intent = new Intent(this, HomePage.class);
+        intent.putExtra("userInformation", email);
         startActivity(intent);
     }
 }

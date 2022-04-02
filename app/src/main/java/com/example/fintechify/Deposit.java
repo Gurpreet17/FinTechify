@@ -16,7 +16,7 @@ import java.text.NumberFormat;
 public class Deposit extends AppCompatActivity {
     private Button back, btnDeposit;
     private TextView txtBalance, txtAmount;
-    private String [] currentUser = MainActivity.vertified;
+    private String [] verified;// = MainActivity.vertified;
     private String balance,email;
 
     @Override
@@ -30,28 +30,35 @@ public class Deposit extends AppCompatActivity {
         txtAmount = findViewById(R.id.depositAmount);
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
-//        email = getIntent().getExtras().getString("userInformation");
-//        currentUser = sp.getString(email,"").split("\\;");
+        email = getIntent().getExtras().getString("userInformation");
+        verified = sp.getString(email,"").split("\\;");
+
+        SharedPreferences.Editor editor = sp.edit();
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
-        balance = defaultFormat.format(Double.parseDouble(currentUser[3]));
+        balance = defaultFormat.format(Double.parseDouble(verified[3]));
 
         txtBalance.setText(balance);
         btnDeposit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double amountDeposit = Double.parseDouble(txtAmount.getText().toString());
-                double newBalance = Double.parseDouble(currentUser[3]) + amountDeposit;
-                SharedPreferences.Editor editor = sp.edit();
-                currentUser[3] = newBalance + "";
-                txtBalance.setText(defaultFormat.format(newBalance));
-                String info = "";
-                for (int x= 0; x < currentUser.length-1; x++)
-                    info += currentUser[x] + ";";
-                info += currentUser[3];
-                System.out.println("info - " + info);
-                editor.putString(email,info);
-                editor.commit();
-                Toast.makeText(Deposit.this,"Amount deposited",Toast.LENGTH_LONG).show();
+                if (amountDeposit < 0) {
+                    Toast.makeText(Deposit.this, "The deposit cannot be less than 0!", Toast.LENGTH_SHORT).show();
+                } else {
+                    double newBalance = Double.parseDouble(verified[3]) + amountDeposit;
+
+                    verified[3] = newBalance + "";
+                    txtBalance.setText(defaultFormat.format(newBalance));
+
+                    String info = "";
+                    for (int x = 0; x < verified.length - 1; x++)
+                        info += verified[x] + ";";
+                    info += verified[3];
+
+                    //System.out.println("info - " + info);
+                    editor.putString(email, info).commit();
+                    Toast.makeText(Deposit.this, "Amount deposited", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -66,7 +73,7 @@ public class Deposit extends AppCompatActivity {
 
     public void goBack(){
         Intent intent = new Intent(this, HomePage.class);
-        intent.putExtra("deposit",currentUser);
+        intent.putExtra("userInformation", email);
         startActivity(intent);
     }
 }

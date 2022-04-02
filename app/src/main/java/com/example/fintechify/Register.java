@@ -31,6 +31,9 @@ public class Register extends AppCompatActivity {
         txtEmail = findViewById(R.id.email);
         txtPassword = findViewById(R.id.password);
 
+        sp = getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+
         btnRegister.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -38,13 +41,20 @@ public class Register extends AppCompatActivity {
                 strPassword = txtPassword.getText().toString();
                 strAge = txtAge.getText().toString();
                 strName = txtName.getText().toString();
+
                 String balance = "0.00";
-                sp = getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                String information = strPassword + ";" + strEmail + ";" + strName + ";" + balance;
-                editor.putString(strEmail,information).commit();
+                if(sp.contains(strEmail)){
+                   Toast.makeText(Register.this,"Email is already registered!",Toast.LENGTH_SHORT).show();
+                }
+                else if (Integer.parseInt(strAge) < 16){
+                    Toast.makeText(Register.this,"Must be over 16 to register an account!",Toast.LENGTH_SHORT).show();
+                } else{
+                    String information = strPassword + ";" + strEmail + ";" + strName + ";" + balance;
+                    editor.putString(strEmail, information).commit();
+                    Toast.makeText( Register.this,"Successfully Registered",Toast.LENGTH_SHORT).show();
+                    openLogin();
+                }
                 // System.out.println("sp - " + sp.getAll());
-                Toast.makeText(Register.this,"Successfully Registered",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -59,11 +69,7 @@ public class Register extends AppCompatActivity {
     }
     public void openLogin(){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("userInformation",txtEmail.getText().toString());
         startActivity(intent);
-    }
-
-    @Override
-    public SharedPreferences getSharedPreferences(String name, int mode) {
-        return super.getSharedPreferences(name, mode);
     }
 }

@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
 
-        //sp.edit().clear().commit();
+//        sp.edit().clear().commit();
+//        sp.edit().putString("admin", "admin;admin;administrator;0").commit();
 
         logIn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
                     String [] information = sp.getString(inputEmail,"").split("\\;");
                     if (information.length > 0 && information[0].equals(inputPassword)){
                         vertified = information;
-                        System.out.println(vertified[0] + " " + vertified[1] + " " + vertified[2] + " " + vertified[3]);
-                        openHome(); }
+                        openHome();
+                    }
                     else
                         Toast.makeText(MainActivity.this,"Invalid Password !",Toast.LENGTH_LONG).show();
                 }
