@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +33,10 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
     private Spinner droplist, droplist2;
     private EditText inputAmount;
     private ArrayAdapter<String> adapter;
+    private SharedPreferences sp;
+    private String [] verified;
+    private String email;
+
     private double api;
     List<String> array = new ArrayList<>();
 
@@ -39,6 +44,11 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convert);
+
+        sp = getApplicationContext().getSharedPreferences("myUserPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        email = getIntent().getExtras().getString("userInformation");
+        verified = sp.getString(email,"").split("\\;");
 
         droplist = findViewById(R.id.droplist);
         adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, array);
@@ -74,6 +84,7 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
 
     public void goBack(){
         Intent intent = new Intent(this, HomePage.class);
+        intent.putExtra("userInformation", email);
         startActivity(intent);
     }
 
@@ -112,20 +123,19 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
                                 JSONObject jsonObject = new JSONObject(myResponse);
                                 JSONObject data = jsonObject.getJSONObject("data");
 
-                                if(array.size() <= 0){
-                                    for(int i = 0; i < data.length(); i++){
-                                        adapter.add(data.names().getString(i));
-                                    }
-                                    droplist.setAdapter(adapter);
-                                    droplist2.setAdapter(adapter);
+                                if(!(array.size() <= 0)){
+                                    JSONObject first = data.getJSONObject(type1);
+                                    double from = Double.parseDouble(first.getString("value"));
+                                    JSONObject second = data.getJSONObject(type2);
+                                    double to = Double.parseDouble(second.getString("value"));
+                                    results.setText(String.format("%.2f", amount * (to/from)));
                                 }
 
-                                JSONObject first = data.getJSONObject(type1);
-                                double from = Double.parseDouble(first.getString("value"));
-                                JSONObject second = data.getJSONObject(type2);
-                                double to = Double.parseDouble(second.getString("value"));
-                                results.setText(String.format("%.2f", amount * (to/from)));
-
+                                for(int i = 0; i < data.length(); i++){
+                                    adapter.add(data.names().getString(i));
+                                }
+                                droplist.setAdapter(adapter);
+                                droplist2.setAdapter(adapter);
                             } catch (JSONException e){
                                 e.printStackTrace();
                             }

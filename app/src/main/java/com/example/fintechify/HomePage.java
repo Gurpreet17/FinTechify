@@ -15,10 +15,8 @@ import com.example.fintechify.MainActivity.*;
 public class HomePage extends AppCompatActivity {
     private Button logOut, deposit, withdrawal, interest, taxes, sat, transfer;
     private TextView txtWelcome, txtBalance;
-    private String email;
-    private String [] verified = MainActivity.vertified;
-    private String balance;
-
+    private String email, balance;
+    private String[] verified;// = MainActivity.vertified;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +28,14 @@ public class HomePage extends AppCompatActivity {
         txtWelcome = findViewById(R.id.welcome);
         txtBalance = findViewById(R.id.balance);
 
-//        SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
-//        email = getIntent().getExtras().getString("userInformation");
-//        verified = sp.getString(email,"").split("\\;");
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
+        email = getIntent().getExtras().getString("userInformation");
+        verified = sp.getString(email,"").split("\\;");
+
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
         balance = defaultFormat.format(Double.parseDouble(verified[3]));
         txtWelcome.setText(String.format("Welcome %s", verified[2]));
         txtBalance.setText(balance);
-        deposit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDeposit();
-            }
-        });
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +80,7 @@ public class HomePage extends AppCompatActivity {
         sat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openSAT();
+                openConvert();
             }
         });
 
@@ -106,31 +99,32 @@ public class HomePage extends AppCompatActivity {
     }
     public void openDeposit() {
         Intent intent = new Intent(this, Deposit.class);
-        intent.putExtra("userInformation",email);
+        intent.putExtra("userInformation", email);
         startActivity(intent);
     }
     public void openWithdrawal() {
         Intent intent = new Intent(this, Withdrawal.class);
-        intent.putExtra("userInformation",verified);
+        intent.putExtra("userInformation",email);
         startActivity(intent);
     }
     public void openInterest() {
         Intent intent = new Intent(this, Interest.class);
-        intent.putExtra("userInformation",verified);
+        intent.putExtra("userInformation",email);
         startActivity(intent);
     }
     public void openTaxes() {
         Intent intent = new Intent(this, Taxes.class);
-        intent.putExtra("userInformation",verified);
+        intent.putExtra("userInformation",email);
         startActivity(intent);
     }
-    public void openSAT() {
+    public void openConvert() {
         Intent intent = new Intent(this, Convert.class);
+        intent.putExtra("userInformation",email);
         startActivity(intent);
     }
     public void openTransfer() {
         Intent intent = new Intent(this, Transfer.class);
-        intent.putExtra("userInformation",verified);
+        intent.putExtra("userInformation",email);
         startActivity(intent);
     }
 }
