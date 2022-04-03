@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -83,15 +84,20 @@ public class compoundInterest extends AppCompatActivity {
         String y = yView.getText().toString();
         String s = balView.getText().toString();
         String t = tView.getText().toString();
-        double rate = Double.parseDouble(r)/100;
-        int years = Integer.parseInt(y);
-        double start = Double.parseDouble(s.substring(1));
-        int times = Integer.parseInt(t);
-        int nt = times*years;
-        double rOverN = rate/times;
-
-        double compound = start*Math.pow((1+rOverN),nt);
-        s = String.format("%.2f", compound);
-        ((TextView) findViewById(R.id.newBalance)).setText(s); }
-
+        if (r.equals("") || y.equals("") || s.equals("") || t.equals(""))
+        {
+            Toast.makeText( compoundInterest.this,"Invalid Inputs",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            double rate = Double.parseDouble(r)/100;
+            int years = Integer.parseInt(y);
+            double start = Double.parseDouble(s.substring(1));
+            int times = Integer.parseInt(t);
+            int nt = times*years;
+            double rOverN = rate/times;
+            double compound = start*Math.pow((1+rOverN),nt);
+            s = String.format("%.2f", compound);
+            ((TextView) findViewById(R.id.newBalance)).setText(s);
+        }
+    }
 }

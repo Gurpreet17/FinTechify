@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -77,17 +78,21 @@ public class simpleInterest extends AppCompatActivity {
         String r = rView.getText().toString();
         String y = yView.getText().toString();
         String s = balView.getText().toString();
-        double rate = Double.parseDouble(r)/100;
-        double years = Double.parseDouble(y);
-        double start = Double.parseDouble(s.substring(1));
-        System.out.println(start);
-        double rateyears = (rate*years)/100;
-
-        double sum = start * (1 + (rate*years));
-
-        s = String.format("%.2f", sum);
-        ((TextView) findViewById(R.id.newBalance)).setText(s);
-        System.out.println(s);
+        if (r.equals("") || y.equals("") || s.equals(""))
+        {
+            Toast.makeText( simpleInterest.this,"Invalid Inputs",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            double rate = Double.parseDouble(r)/100;
+            double years = Double.parseDouble(y);
+            double start = Double.parseDouble(s.substring(1));
+            System.out.println(start);
+            double rateyears = (rate*years)/100;
+            double sum = start * (1 + (rate*years));
+            s = String.format("%.2f", sum);
+            ((TextView) findViewById(R.id.newBalance)).setText(s);
+            System.out.println(s);
+        }
     }
 
     
