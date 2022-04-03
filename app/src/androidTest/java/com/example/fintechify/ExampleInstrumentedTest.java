@@ -46,38 +46,5 @@ public class ExampleInstrumentedTest {
         String[] expected = {"123", "Jim@gmail.com", "Jim", "0.00"};
         assertArrayEquals(expected, result);
     }
-    @Test
-    public void deposit(){
-
-
-
-        String[] input = {"123", "Jim@gmail.com", "Jim", "0.00"};
-        MainActivity.vertified = input;
-
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
-
-        sp.getString("myUserPrefs", "balance");
-
-
-        /*new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                Deposit dp = new Deposit();
-                TextView amount = (TextView) dp.findViewById(R.id.depositAmount);
-                amount.setText("50");
-                Intent intent = new Intent();
-                intent.putExtra("userInformation",input[1]);
-                dp.startActivity(intent);
-            }
-        });*/
-
-        String[] result = MainActivity.vertified;
-
-        String [] expected = {"123", "Jim@gmail.com", "Jim", "50.00"};
-        assertArrayEquals(expected, result);
-
-
-    }
-
 
 }
