@@ -33,7 +33,7 @@
         android:id="@+id/activity_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/convert"
         android:textAlignment="center"
         android:textColor="@color/black"
