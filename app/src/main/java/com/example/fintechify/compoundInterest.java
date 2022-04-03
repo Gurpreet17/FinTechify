@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.EditText;
 
 import java.text.NumberFormat;
 
 public class compoundInterest extends AppCompatActivity {
-    private Button back;
+    private Button back, calculate;
     private TextView txtbalance;
     private SharedPreferences sp;
     private String [] verified;
@@ -24,6 +25,7 @@ public class compoundInterest extends AppCompatActivity {
         setContentView(R.layout.activity_compound_interest);
         back = (Button) findViewById(R.id.back);
         txtbalance = findViewById(R.id.balance);
+        calculate = findViewById(R.id.compoundButton);
 
         sp = getApplicationContext().getSharedPreferences("myUserPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -41,13 +43,22 @@ public class compoundInterest extends AppCompatActivity {
             }
         });
 
-        Button simple = (Button) findViewById(R.id.calculate);
+        Button simple = (Button) findViewById(R.id.simpleInterest);
         simple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goSimple();
             }
         });
+
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                compound();
+            }
+        });
+
+
     }
 
     public void goBack(){
@@ -61,4 +72,26 @@ public class compoundInterest extends AppCompatActivity {
         intent.putExtra("userInformation", email);
         startActivity(intent);
     }
+
+    public void compound()
+    {
+        TextView balView = (TextView) findViewById(R.id.balance);
+        EditText rView = (EditText) findViewById(R.id.compoundRate);
+        EditText yView = (EditText) findViewById(R.id.compoundTime);
+        EditText tView = (EditText) findViewById(R.id.numberCompound);
+        String r = rView.getText().toString();
+        String y = yView.getText().toString();
+        String s = balView.getText().toString();
+        String t = tView.getText().toString();
+        double rate = Double.parseDouble(r)/100;
+        int years = Integer.parseInt(y);
+        double start = Double.parseDouble(s.substring(1));
+        int times = Integer.parseInt(t);
+        int nt = times*years;
+        double rOverN = rate/times;
+
+        double compound = start*Math.pow((1+rOverN),nt);
+        s = String.format("%.2f", compound);
+        ((TextView) findViewById(R.id.newBalance)).setText(s); }
+
 }
