@@ -32,6 +32,7 @@ public class Taxes extends AppCompatActivity {
         ontarioTS = findViewById(R.id.ONTS);
         fedTS = findViewById(R.id.fedTS);
 
+
         sp = getApplicationContext().getSharedPreferences("myUserPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         email = getIntent().getExtras().getString("userInformation");
