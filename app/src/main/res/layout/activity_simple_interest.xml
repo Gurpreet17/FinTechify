@@ -10,26 +10,23 @@
         android:id="@+id/newBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/balance"
+        android:text="@string/newBalance"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.349" />
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/your_balance"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/calculate" />
 
     <EditText
         android:id="@+id/compoundTime"
@@ -81,7 +78,7 @@
         android:id="@+id/compoundInterest"
         style="@style/Widget.Button.CustomStyle"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -99,7 +96,7 @@
         android:id="@+id/simpleInterest"
         style="@style/Widget.Button.CustomStyle"
         android:layout_width="184dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -179,14 +176,12 @@
 
     <Button
         android:id="@+id/calculate"
-        android:layout_width="wrap_content"
+        style="@style/Widget.Button.CustomStyle"
+        android:layout_width="371dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Calculate"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/compoundTime"
-        app:layout_constraintVertical_bias="0.58" />
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
