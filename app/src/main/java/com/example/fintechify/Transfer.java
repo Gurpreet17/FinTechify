@@ -2,7 +2,6 @@ package com.example.fintechify;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.fintechify.MainActivity.*;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -36,7 +34,7 @@ public class Transfer extends AppCompatActivity {
 
         tt = findViewById(R.id.transfer_to);
         amt = findViewById(R.id.transfer_amount);
-        calculate = findViewById(R.id.calculate);
+        calculate = findViewById(R.id.simpleInterest);
         txtBalance = findViewById(R.id.balance);
 
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();

@@ -7,7 +7,7 @@
     tools:context=".compoundInterest">
 
     <EditText
-        android:id="@+id/editTextNumberDecimal4"
+        android:id="@+id/numberCompound"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:height="48px"
@@ -15,8 +15,8 @@
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal3"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal3"
+        app:layout_constraintEnd_toEndOf="@+id/compoundTime"
+        app:layout_constraintStart_toStartOf="@+id/compoundTime"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -24,44 +24,48 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="# of Times Compounded:"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
+        app:layout_constraintStart_toStartOf="@+id/compoundTime"
+        app:layout_constraintTop_toBottomOf="@+id/compoundTime" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/newBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/balance"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/compoundTime"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/your_balance"
         android:textColor="@color/black"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal3"
+        android:id="@+id/compoundTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:height="48px"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/inputAmount"
+        app:layout_constraintEnd_toEndOf="@+id/compoundRate"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/selection"
         app:layout_constraintTop_toBottomOf="@+id/selection"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -73,8 +77,8 @@
         android:layout_marginTop="16dp"
         android:text="Interest Time (Years):"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/inputAmount"
-        app:layout_constraintTop_toBottomOf="@+id/inputAmount" />
+        app:layout_constraintStart_toStartOf="@+id/compoundRate"
+        app:layout_constraintTop_toBottomOf="@+id/compoundRate" />
 
     <TextView
         android:id="@+id/amount"
@@ -83,11 +87,11 @@
         android:layout_marginTop="16dp"
         android:text="@string/interest_rate"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/calculate"
-        app:layout_constraintTop_toBottomOf="@+id/calculate" />
+        app:layout_constraintStart_toStartOf="@+id/simpleInterest"
+        app:layout_constraintTop_toBottomOf="@+id/simpleInterest" />
 
     <EditText
-        android:id="@+id/inputAmount"
+        android:id="@+id/compoundRate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:height="48px"
@@ -95,13 +99,13 @@
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/compound"
+        app:layout_constraintEnd_toEndOf="@+id/compoundInterest"
         app:layout_constraintStart_toStartOf="@+id/amount"
         app:layout_constraintTop_toBottomOf="@+id/amount"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/compound"
+        android:id="@+id/compoundInterest"
         style="@style/Widget.Button.CustomStyle"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -119,7 +123,7 @@
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
-        android:id="@+id/calculate"
+        android:id="@+id/simpleInterest"
         style="@style/Widget.Button.CustomStyle"
         android:layout_width="184dp"
         android:layout_height="70dp"
@@ -200,5 +204,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="205dp" />
+
+    <Button
+        android:id="@+id/compoundButton"
+        android:layout_width="53dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="12dp"
+        android:text="Calculate"
+        app:layout_constraintBottom_toTopOf="@+id/newBalance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

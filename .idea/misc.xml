@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_compound_interest.xml" value="0.10833333333333334" />
+        <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_compound_interest.xml" value="0.448" />
         <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_convert.xml" value="0.10833333333333334" />
         <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_deposit.xml" value="0.25" />
         <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_home_page.xml" value="0.27439024390243905" />
+        <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_interest.xml" value="0.33" />
         <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_register.xml" value="0.1" />
-        <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_taxes.xml" value="0.5" />
+        <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_simple_interest.xml" value="0.33" />
+        <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_taxes.xml" value="0.22" />
         <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_transfer.xml" value="0.33" />
         <entry key="..\:/Users/20031/AndroidStudioProjects/FinTechify/app/src/main/res/layout/activity_withdrawal.xml" value="0.25" />
         <entry key="..\:/Users/ricki/AndroidStudioProjects/Banking App/app/src/main/res/layout/activity_compound_interest.xml" value="0.358695652173913" />
@@ -32,9 +34,6 @@
         <entry key="..\:/Users/ricki/AndroidStudioProjects/Banking App/app/src/main/res/layout/taxes.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ricki/AndroidStudioProjects/Banking App/app/src/main/res/layout/test.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ricki/AndroidStudioProjects/Banking App/app/src/main/res/layout/withdrawal.xml" value="0.358695652173913" />
-        <entry key="..\:/miche/Documents/Android Studio Projects/1022 Project/app/src/main/res/layout/activity_interest.xml" value="0.21979166666666666" />
-        <entry key="..\:/miche/Documents/Android Studio Projects/1022 Project/app/src/main/res/layout/activity_simple_interest.xml" value="0.21979166666666666" />
-        <entry key="..\:/miche/Documents/Android Studio Projects/1022 Project/app/src/main/res/layout/activity_withdrawal.xml" value="0.21979166666666666" />
       </map>
     </option>
   </component>

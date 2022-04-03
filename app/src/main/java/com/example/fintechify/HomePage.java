@@ -16,7 +16,7 @@ public class HomePage extends AppCompatActivity {
     private Button logOut, deposit, withdrawal, interest, taxes, sat, transfer;
     private TextView txtWelcome, txtBalance;
     private String email, balance;
-    private String[] verified;// = MainActivity.vertified;
+    private String[] verified = MainActivity.vertified;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -47,7 +47,7 @@ public class Interest extends AppCompatActivity {
             }
         });
 
-        compound = (Button) findViewById(R.id.compound);
+        compound = (Button) findViewById(R.id.compoundInterest);
         compound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

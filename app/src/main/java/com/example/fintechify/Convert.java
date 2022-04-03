@@ -58,19 +58,19 @@ public class Convert extends AppCompatActivity implements AdapterView.OnItemSele
         droplist2 = findViewById(R.id.droplist2);
         droplist2.setOnItemSelectedListener(this);
 
-        inputAmount = findViewById(R.id.inputAmount);
-        calculate = findViewById(R.id.calculate);
+        inputAmount = findViewById(R.id.compoundRate);
+        calculate = findViewById(R.id.simpleInterest);
         fetchData("CAD", "CAD", 1);
         calculate.setOnClickListener(new View.OnClickListener(){
-           public void onClick(View view){
-               try {
-                   api = Double.parseDouble(inputAmount.getText().toString());
-               } catch (Exception e){
-                   api = 1.00;
-               } finally {
-                   fetchData(droplist.getSelectedItem().toString(), droplist2.getSelectedItem().toString(), api);
-               }
-           }
+            public void onClick(View view){
+                try {
+                    api = Double.parseDouble(inputAmount.getText().toString());
+                } catch (Exception e){
+                    api = 1.00;
+                } finally {
+                    fetchData(droplist.getSelectedItem().toString(), droplist2.getSelectedItem().toString(), api);
+                }
+            }
         });
 
         back = findViewById(R.id.back);
