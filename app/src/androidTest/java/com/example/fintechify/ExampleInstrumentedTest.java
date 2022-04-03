@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.test.orchestrator.junit.BundleJUnitUtils;
@@ -49,17 +50,23 @@ public class ExampleInstrumentedTest {
     @Test
     public void deposit(){
 
-
-
-        String[] input = {"123", "Jim@gmail.com", "Jim", "0.00"};
-        MainActivity.vertified = input;
+        String[] result = {"123", "Jim@gmail.com", "Jim", "0.00"};
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
+        String[] expected = sp.getString(result[1], "").split("\\.");
 
-        sp.getString("myUserPrefs", "balance");
+        Deposit dp = new Deposit();
+        TextView txtAmount = dp.findViewById(R.id.rate);
+        txtAmount.setText("50");
 
+        Button btnDeposit = dp.findViewById(R.id.calculate);
+        btnDeposit.performClick();
 
-        /*new Handler(Looper.getMainLooper()).post(new Runnable() {
+        assertArrayEquals(expected, result);
+
+    }
+
+/*new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
                 Deposit dp = new Deposit();
@@ -70,14 +77,4 @@ public class ExampleInstrumentedTest {
                 dp.startActivity(intent);
             }
         });*/
-
-        String[] result = MainActivity.vertified;
-
-        String [] expected = {"123", "Jim@gmail.com", "Jim", "50.00"};
-        assertArrayEquals(expected, result);
-
-
-    }
-
-
 }
