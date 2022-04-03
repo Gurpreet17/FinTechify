@@ -24,7 +24,7 @@ public class Withdrawal extends AppCompatActivity {
         setContentView(R.layout.activity_withdrawal);
         back = (Button) findViewById(R.id.back);
         txtBalance = findViewById(R.id.balance);
-        txtAmount = findViewById(R.id.depositAmount);
+        txtAmount = findViewById(R.id.rate);
         withdrawal = findViewById(R.id.withdrawal);
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", MODE_PRIVATE);

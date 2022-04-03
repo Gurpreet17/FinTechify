@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.text.NumberFormat;
-import com.example.fintechify.MainActivity.*;
 
 public class HomePage extends AppCompatActivity {
     private Button logOut, deposit, withdrawal, interest, taxes, sat, transfer;
@@ -24,7 +23,7 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         logOut = (Button) findViewById(R.id.logOut);
-        deposit = (Button) findViewById(R.id.deposit);
+        deposit = (Button) findViewById(R.id.calculate);
         txtWelcome = findViewById(R.id.welcome);
         txtBalance = findViewById(R.id.balance);
 
@@ -44,7 +43,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        deposit = (Button) findViewById(R.id.deposit);
+        deposit = (Button) findViewById(R.id.calculate);
         deposit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

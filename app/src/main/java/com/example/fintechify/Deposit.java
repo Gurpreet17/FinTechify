@@ -25,9 +25,9 @@ public class Deposit extends AppCompatActivity {
         setContentView(R.layout.activity_deposit);
 
         back = findViewById(R.id.back);
-        btnDeposit = findViewById(R.id.deposit);
+        btnDeposit = findViewById(R.id.calculate);
         txtBalance = findViewById(R.id.balance);
-        txtAmount = findViewById(R.id.depositAmount);
+        txtAmount = findViewById(R.id.rate);
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("myUserPrefs", Context.MODE_PRIVATE);
         email = getIntent().getExtras().getString("userInformation");
