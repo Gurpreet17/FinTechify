@@ -91,13 +91,13 @@ public class compoundInterest extends AppCompatActivity {
         else{
             double rate = Double.parseDouble(r)/100;
             int years = Integer.parseInt(y);
-            double start = Double.parseDouble(s.substring(1));
+            double start = Double.parseDouble(verified[3]);
             int times = Integer.parseInt(t);
             int nt = times*years;
             double rOverN = rate/times;
             double compound = start*Math.pow((1+rOverN),nt);
             s = String.format("%.2f", compound);
-            ((TextView) findViewById(R.id.newBalance)).setText(s);
+            ((TextView) findViewById(R.id.balance2)).setText(s);
         }
     }
 }
