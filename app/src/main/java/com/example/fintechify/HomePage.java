@@ -34,7 +34,7 @@ public class HomePage extends AppCompatActivity {
 
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
         balance = defaultFormat.format(Double.parseDouble(verified[3]));
-        txtWelcome.setText(String.format("Welcome %s", verified[2]));
+        txtWelcome.setText(String.format("Welcome, %s", verified[2]));
         txtBalance.setText(balance);
 
         logOut.setOnClickListener(new View.OnClickListener() {
