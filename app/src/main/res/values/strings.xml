@@ -7,8 +7,8 @@
     <string name="expense_sheet">EXPENSE SHEET</string>
     <string name="deposit">Deposit</string>
     <string name="withdrawal">WITHDRAWAL</string>
-    <string name="interest">INTEREST</string>
-    <string name="taxes">TAXES</string>
+    <string name="interest">Interest</string>
+    <string name="taxes">Taxes</string>
     <string name="salary_after_tax">SALARY AFTER TAX</string>
     <string name="back">back</string>
     <string name="every_month">Every Month</string>
@@ -33,6 +33,7 @@
     <string name="conversion_country">Currency Type:</string>
     <string name="welcome_name">Welcome, {name}</string>
     <string name="finance_news">Finance News</string>
+    <string name="newBalance">{New Balance}</string>
 
     <string-array name="items">
         <item>Once</item>
